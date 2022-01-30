@@ -455,7 +455,7 @@
 <script lang="ts">
 // @ts-nocheck
 import Vue from "vue";
-import * as Phosphor from "../dist/esm/src/entry.esm.js";
+import * as Phosphor from "../src/entry.esm";
 import { ExtendedVue } from "vue/types/vue";
 import { IconProps, IconComputed } from "../src/types";
 
