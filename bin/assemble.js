@@ -121,11 +121,10 @@ import Vue from "vue";
 import {
   IconComputed,
   IconProps,
-  PropValidator,
   IconContext,
-  ContextGetter,
 } from "../types";
-export default /*#__PURE__*/Vue.extend<{}, {}, IconComputed, IconProps>({
+import { ContextGetter, PropValidator } from "../defaults";
+export default Vue.extend<{}, {}, IconComputed, IconProps>({
   name: "Ph${name}",
   props: PropValidator,
   inject: ContextGetter,
@@ -220,13 +219,6 @@ export interface IconProps {
   mirrored: boolean;
 }
 
-export const PropValidator = {
-  color: String,
-  size: [String, Number],
-  weight: { type: String as () => Weight },
-  mirrored: Boolean,
-};
-
 export interface IconComputed {
   displayWeight: Weight;
   displaySize: Size;
@@ -239,15 +231,7 @@ export interface IconContext {
   contextSize?: Size;
   contextColor?: string;
   contextMirrored?: boolean;
-}
-
-export const ContextGetter = {
-  contextWeight: { from: "weight", default: "regular" },
-  contextSize: { from: "size", default: "1em" },
-  contextColor: { from: "color", default: "currentColor" },
-  contextMirrored: { from: "mirrored", default: false },
-};
-  `;
+}`;
 
   for (let key in icons) {
     const name = key

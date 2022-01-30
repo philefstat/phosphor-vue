@@ -244,13 +244,8 @@
 
 <script lang="ts">
 import Vue from "vue";
-import {
-  IconComputed,
-  IconProps,
-  PropValidator,
-  IconContext,
-  ContextGetter,
-} from "../types";
+import { IconComputed, IconProps, IconContext } from "../types";
+import { ContextGetter, PropValidator } from "../defaults";
 export default /*#__PURE__*/ Vue.extend<{}, {}, IconComputed, IconProps>({
   name: "PhFigmaLogo",
   props: PropValidator,

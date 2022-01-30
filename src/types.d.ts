@@ -11,13 +11,6 @@ export interface IconProps {
   mirrored: boolean;
 }
 
-export const PropValidator = {
-  color: String,
-  size: [String, Number],
-  weight: { type: String as () => Weight },
-  mirrored: Boolean,
-};
-
 export interface IconComputed {
   displayWeight: Weight;
   displaySize: Size;
@@ -31,14 +24,6 @@ export interface IconContext {
   contextColor?: string;
   contextMirrored?: boolean;
 }
-
-export const ContextGetter = {
-  contextWeight: { from: "weight", default: "regular" },
-  contextSize: { from: "size", default: "1em" },
-  contextColor: { from: "color", default: "currentColor" },
-  contextMirrored: { from: "mirrored", default: false },
-};
-
 export type PhActivity = ExtendedVue<Vue, {}, {}, IconComputed, IconProps>;
 export type PhAddressBook = ExtendedVue<Vue, {}, {}, IconComputed, IconProps>;
 export type PhAirplane = ExtendedVue<Vue, {}, {}, IconComputed, IconProps>;
