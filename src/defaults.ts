@@ -1,4 +1,26 @@
-import { Weight } from "./types";
+type Weight = "thin" | "light" | "regular" | "bold" | "fill" | "duotone";
+type Size = string | number;
+
+export interface IconProps {
+  weight: Weight;
+  size: Size;
+  color: string;
+  mirrored: boolean;
+}
+
+export interface IconComputed {
+  displayWeight: Weight;
+  displaySize: Size;
+  displayColor: string;
+  displayMirrored: string | undefined;
+}
+
+export interface IconContext {
+  contextWeight?: Weight;
+  contextSize?: Size;
+  contextColor?: string;
+  contextMirrored?: boolean;
+}
 
 export const ContextGetter = {
   contextWeight: { from: "weight", default: "regular" },

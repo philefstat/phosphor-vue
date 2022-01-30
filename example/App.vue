@@ -458,11 +458,10 @@
 </template>
 
 <script lang="ts">
-// @ts-nocheck
 import Vue from "vue";
-import * as Phosphor from "../src/entry.esm";
+import Phosphor from "../dist/phosphor-vue.es.js";
+import { IconProps, IconComputed } from "../dist/defaults";
 import { ExtendedVue } from "vue/types/vue";
-import { IconProps, IconComputed } from "../src/types";
 
 type VueIcon = ExtendedVue<Vue, {}, {}, IconComputed, IconProps> & {
   options: { name: string };

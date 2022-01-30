@@ -3,7 +3,6 @@ import { createVuePlugin } from "vite-plugin-vue2";
 import { visualizer } from "rollup-plugin-visualizer";
 import { resolve } from "path";
 
-console.log(process.env.ANALYZE);
 export default defineConfig({
   plugins: [
     createVuePlugin(),
@@ -18,7 +17,7 @@ export default defineConfig({
   ],
   build: {
     lib: {
-      entry: resolve(__dirname, "src/entry.ts"),
+      entry: resolve(__dirname, "src/phosphor-vue.ts"),
       name: "PhosphorVue",
       fileName: "phosphor-vue",
       formats: ["es", "umd", "iife"],

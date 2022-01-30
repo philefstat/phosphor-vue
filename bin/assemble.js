@@ -3,12 +3,7 @@ const fs = require("fs");
 const path = require("path");
 const chalk = require("chalk");
 
-const {
-  ASSETS_PATH,
-  COMPONENTS_PATH,
-  INDEX_PATH,
-  TYPES_PATH,
-} = require("./index");
+const { ASSETS_PATH, COMPONENTS_PATH, INDEX_PATH } = require("./index");
 
 const icons = {};
 const weights = ["thin", "light", "regular", "bold", "fill", "duotone"];
@@ -122,8 +117,9 @@ import {
   IconComputed,
   IconProps,
   IconContext,
-} from "../types";
-import { ContextGetter, PropValidator } from "../defaults";
+  ContextGetter,
+  PropValidator,
+} from "../defaults";
 export default Vue.extend<{}, {}, IconComputed, IconProps>({
   name: "Ph${name}",
   props: PropValidator,
@@ -204,56 +200,6 @@ export { default as Ph${name} } from "./Ph${name}.vue";
   }
 }
 
-function generateTypes() {
-  let indexString = `
-import { ExtendedVue } from "vue/types/vue"
-import Vue from "vue"
-
-type Weight = "thin" | "light" | "regular" | "bold" | "fill" | "duotone";
-type Size = string | number;
-
-export interface IconProps {
-  weight: Weight;
-  size: Size;
-  color: string;
-  mirrored: boolean;
-}
-
-export interface IconComputed {
-  displayWeight: Weight;
-  displaySize: Size;
-  displayColor: string;
-  displayMirrored: string | undefined;
-}
-
-export interface IconContext {
-  contextWeight?: Weight;
-  contextSize?: Size;
-  contextColor?: string;
-  contextMirrored?: boolean;
-}`;
-
-  for (let key in icons) {
-    const name = key
-      .split("-")
-      .map((substr) => substr.replace(/^\w/, (c) => c.toUpperCase()))
-      .join("");
-    indexString += `\nexport type Ph${name} = ExtendedVue<Vue, {}, {}, IconComputed, IconProps>;`;
-  }
-  try {
-    fs.writeFileSync(TYPES_PATH, indexString, {
-      flag: "w",
-    });
-    console.log(chalk.green("Typegen success"));
-  } catch (err) {
-    console.error(chalk.red("Typegen failed"));
-    console.group();
-    console.error(err);
-    console.groupEnd();
-  }
-}
-
 readFiles();
 generateComponents();
-generateTypes();
 generateExports();

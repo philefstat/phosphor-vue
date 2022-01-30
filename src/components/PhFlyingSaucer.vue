@@ -288,8 +288,13 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { IconComputed, IconProps, IconContext } from "../types";
-import { ContextGetter, PropValidator } from "../defaults";
+import {
+  IconComputed,
+  IconProps,
+  IconContext,
+  ContextGetter,
+  PropValidator,
+} from "../defaults";
 export default Vue.extend<{}, {}, IconComputed, IconProps>({
   name: "PhFlyingSaucer",
   props: PropValidator,
