@@ -1,13 +1,27 @@
 import { defineConfig } from "vite";
 import { createVuePlugin } from "vite-plugin-vue2";
+import { visualizer } from "rollup-plugin-visualizer";
 import { resolve } from "path";
 
+console.log(process.env.ANALYZE);
 export default defineConfig({
-  plugins: [createVuePlugin()],
+  plugins: [
+    createVuePlugin(),
+    ...(process.env.ANALYZE === "true"
+      ? [
+          visualizer({
+            open: true,
+            title: "phosphor-vue bundle visualizer",
+          }),
+        ]
+      : []),
+  ],
   build: {
     lib: {
       entry: resolve(__dirname, "src/entry.ts"),
-      name: "phosphor-vue",
+      name: "PhosphorVue",
+      fileName: "phosphor-vue",
+      formats: ["es", "umd", "iife"],
     },
     rollupOptions: {
       // make sure to externalize deps that shouldn't be bundled

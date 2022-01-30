@@ -133,7 +133,7 @@
 import Vue from "vue";
 import { IconComputed, IconProps, IconContext } from "../types";
 import { ContextGetter, PropValidator } from "../defaults";
-export default /*#__PURE__*/ Vue.extend<{}, {}, IconComputed, IconProps>({
+export default Vue.extend<{}, {}, IconComputed, IconProps>({
   name: "PhSmiley",
   props: PropValidator,
   inject: ContextGetter,
