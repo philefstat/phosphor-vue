@@ -43,8 +43,8 @@ npm install --save phosphor-vue
     components: {
       PhHorse,
       PhHeart,
-      PhCube
-    }
+      PhCube,
+    },
   };
 </script>
 ```
@@ -65,9 +65,8 @@ Phosphor takes advantage of Vue's `provide`/`inject` options to make applying a 
 ```html
 <template>
   <div>
-    <ph-horse /> {/* I'm lime-green, 32px, and bold! */} 
-    <ph-heart /> {/* Me too! */} 
-    <ph-cube />  {/* Me three :) */}
+    <ph-horse /> {/* I'm lime-green, 32px, and bold! */} <ph-heart /> {/* Me
+    too! */} <ph-cube /> {/* Me three :) */}
   </div>
 </template>
 
@@ -78,14 +77,14 @@ Phosphor takes advantage of Vue's `provide`/`inject` options to make applying a 
     components: {
       PhHorse,
       PhHeart,
-      PhCube
+      PhCube,
     },
     provide: {
       color: "limegreen",
       size: 32,
       weight: "bold",
-      mirrored: false
-    }
+      mirrored: false,
+    },
   };
 </script>
 ```
@@ -100,7 +99,7 @@ You may create multiple providers for styling icons differently in separate regi
 
 <img src="/meta/cube-rotate.svg" width="128" align="right" />
 
-Components have a `<slot>` for arbitrary SVG elements, so long as they are valid children of the `<svg>` element. This can be used to modify an icon with background layers or shapes, filters, animations and more. The slotted children will be placed *below* the normal icon contents.
+Components have a `<slot>` for arbitrary SVG elements, so long as they are valid children of the `<svg>` element. This can be used to modify an icon with background layers or shapes, filters, animations and more. The slotted children will be placed _below_ the normal icon contents.
 
 The following will cause the Cube icon to rotate and pulse:
 

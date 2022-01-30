@@ -1,8 +1,13 @@
 <template>
-  <div id="app" style="user-select: none;">
+  <div id="app" style="user-select: none">
     <section>
       <h1>Passed Props</h1>
-      <ph-at :weight="weight" :size="size" :color="color" :mirrored="mirrored" />
+      <ph-at
+        :weight="weight"
+        :size="size"
+        :color="color"
+        :mirrored="mirrored"
+      />
       <ph-chart-pie-slice
         :weight="weight"
         :size="size"
@@ -353,7 +358,7 @@
       <ph-lightning>
         <title>HI MOM</title>
       </ph-lightning>
-      <span style="display: inline-flex; align-items: center;">
+      <span style="display: inline-flex; align-items: center">
         <ph-diamond>
           <ph-diamond :size="128" :x="64" :y="64">
             <ph-diamond :size="128" :x="64" :y="64">
@@ -517,21 +522,21 @@ export default Vue.extend({
       muted: false,
       volume: "high",
       wifi: "high",
-      showAll: false
+      showAll: false,
     };
   },
   computed: {
     filled() {
       const { checked } = this as AppData;
       return checked ? "fill" : "regular";
-    }
+    },
   },
   provide() {
     return {
       weight: "duotone",
       size: 64,
       color: "darkorchid",
-      mirrored: false
+      mirrored: false,
     };
   },
   methods: {
@@ -644,8 +649,8 @@ export default Vue.extend({
           this.wifi = "high";
           break;
       }
-    }
-  }
+    },
+  },
 });
 </script>
 
