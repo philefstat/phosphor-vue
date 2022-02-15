@@ -7,10 +7,10 @@
   "repository": "phosphor-icons/phosphor-vue",
   "homepage": "https://phosphoricons.com",
   "sideEffects": false,
-  "types": "dist/phosphor-vue.es.d.ts",
-  "main": "dist/phosphor-vue.es.js",
-  "browser": "dist/phosphor-vue.es.js",
-  "module": "dist/phosphor-vue.es.js",
+  "types": "dist/phosphor-vue.esm.d.ts",
+  "main": "dist/phosphor-vue.esm.js",
+  "browser": "dist/phosphor-vue.esm.js",
+  "module": "dist/phosphor-vue.esm.js",
   "unpkg": "dist/phosphor-vue.iife.js",
   "files": [
     "dist"
@@ -41,11 +41,11 @@
     "cross-env": "^7.0.3",
     "rollup-plugin-visualizer": "^5.5.4",
     "typescript": "^4.5.5",
-    "vite": "^2.7.13",
+    "vite": "^2.8.2",
     "vite-plugin-vue2": "^1.9.3",
     "vue": "^2.6.14",
     "vue-template-compiler": "^2.6.14",
-    "vue-tsc": "^0.31.1"
+    "vue-tsc": "^0.31.4"
   },
   "peerDependencies": {
     "vue": "^2.6.14"

@@ -1,17 +1,24 @@
-// iife/cjs usage extends esm default export - so import it all
-import plugin, * as components from "./phosphor-vue.es";
+import _Vue, { PluginFunction } from "vue";
 
-// Attach named exports directly to plugin. IIFE/CJS will
-// only expose one global var, with component exports exposed as properties of
-// that global var (eg. plugin.component)
-type NamedExports = Exclude<typeof components, "default">;
-type ExtendedPlugin = typeof plugin & NamedExports;
-Object.entries(components).forEach(([componentName, component]) => {
-  if (componentName !== "default") {
-    const key = componentName as Exclude<keyof NamedExports, "default">;
-    const val = component as Exclude<ExtendedPlugin, typeof plugin>;
-    (plugin as ExtendedPlugin)[key] = val;
-  }
-});
+// Import vue components
+import * as components from "./components/index";
 
-export default plugin;
+// Define typescript interfaces for autoinstaller
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+interface InstallFunction extends PluginFunction<any> {
+  installed?: boolean;
+}
+
+// install function executed by Vue.use()
+export const install: InstallFunction = function installPhosphorVue(
+  Vue: typeof _Vue,
+) {
+  if (install.installed) return;
+  install.installed = true;
+  Object.entries(components).forEach(([componentName, component]) => {
+    Vue.component(componentName, component);
+  });
+};
+
+// export default components
+export * from "./components/index";
