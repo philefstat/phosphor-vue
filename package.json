@@ -9,6 +9,7 @@
   "main": "dist/phosphor-vue.umd.js",
   "browser": "dist/phosphor-vue.umd.js",
   "module": "dist/phosphor-vue.es.js",
+  "type": "module",
   "sideEffect": false,
   "types": "phosphor-vue.d.ts",
   "files": [
